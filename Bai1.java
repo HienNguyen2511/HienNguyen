@@ -20,7 +20,7 @@ public class Bai1 {
         int input;
         System.out.println("Import number: ");
         input = sc.nextInt();
-        for (int i = 1; i < input; i++) {
+        for (int i = 1; i <= input; i++) {
             if (input % i == 0) {
                 System.out.print(i + " ");
             }
