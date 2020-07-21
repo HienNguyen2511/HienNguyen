@@ -29,8 +29,6 @@ public class Bai3 {
             if (imax < i[j]) {
                 imax = i[j];
             }
-        }
-        for (int j = 0; j < 10; j++) {
             if (imin > i[j]) {
                 imin = i[j];
             }
