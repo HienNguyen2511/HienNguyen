@@ -27,13 +27,7 @@ public class Bai2 {
                 count++;
             }
         }
-        if (count != 0) {
-            bool = false;
-            System.out.println(bool);
-        } else {
-            bool = true;
-            System.out.println(bool);
-        }
+        
     }
 
 }
