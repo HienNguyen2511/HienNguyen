@@ -34,10 +34,12 @@ public class BookView {
 				System.out.println("Import price book: ");
 				int price = sc.nextInt();
 				Book book = new Book(name, price);
+				break;
 
 			case 3:
 				System.out.println("Import name book you want to delete: ");
 				String nameDeleteBook = sc.next();
+				break;
 
 			case 4:
 				System.out.println("Import name of book you want to update: ");
