@@ -34,25 +34,10 @@ public class BookView {
 				System.out.println("Import price book: ");
 				int price = sc.nextInt();
 				Book book = new Book(name, price);
-				if (bookController.addBook(book)) {
-					System.out.println("Succes");
-				} else {
-					System.out.println("Fail");
-				}
-				break;
 
 			case 3:
 				System.out.println("Import name book you want to delete: ");
 				String nameDeleteBook = sc.next();
-				int resultDelete = bookController.deleteBook(nameDeleteBook);
-				if (resultDelete == 1) {
-					System.out.println("Success");
-				} else if (resultDelete == -1) {
-					System.out.println("Fail");
-				} else {
-					System.out.println("Not found");
-				}
-				break;
 
 			case 4:
 				System.out.println("Import name of book you want to update: ");
@@ -63,15 +48,6 @@ public class BookView {
 					String newName = sc.next();
 					System.out.println("Price:");
 					int newPrice = sc.nextInt();
-					int resultUpdate = bookController.updateBook(nameUpdateBook,
-							bookController.createBook(newName, newPrice));
-					if (resultUpdate == 1) {
-						System.out.println("Success");
-					} else if (resultUpdate == -1) {
-						System.out.println("Fail");
-					}
-				} else {
-					System.out.println("Not found");
 				}
 				break;
 
