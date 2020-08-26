@@ -90,4 +90,14 @@ public class BookDAO {
 		}
 		return false;
 	}
+
+	public boolean xoaTheoStt(int stt) {
+		try {
+			library.remove(stt);
+			return true;
+		} catch (Exception e) {
+			System.out.println(e);
+			return false;
+		}
+	}
 }

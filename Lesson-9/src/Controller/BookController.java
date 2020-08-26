@@ -3,9 +3,24 @@ package Controller;
 import java.util.ArrayList;
 import model.DAO.BookDAO;
 import model.DTO.Book;
+import java.util.UUID;
 
 public class BookController {
+
 	BookDAO bookDAO = new BookDAO();
+
+	private static BookController instance;
+
+	public static BookController getInstance() {
+		if (instance == null) {
+			instance = new BookController();
+		}
+		return instance;
+	}
+
+	private BookController() {
+
+	}
 
 	public ArrayList<Book> getAllBooks() {
 		return bookDAO.getAllBooks();
@@ -16,6 +31,9 @@ public class BookController {
 	}
 
 	public boolean addBook(Book b) {
+		// sinh ngau nhien id cho book
+//		String newID = UUID.randomUUID().toString();
+//		b.setID(newID);
 		return bookDAO.addBook(b);
 	}
 
@@ -29,6 +47,10 @@ public class BookController {
 
 	public boolean isExistBook(String nameBook) {
 		return bookDAO.isExistBook(nameBook);
+	}
+
+	public boolean xoaTheoStt(int stt) {
+		return bookDAO.xoaTheoStt(stt);
 	}
 
 }
