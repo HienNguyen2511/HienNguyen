@@ -18,8 +18,9 @@ public class BookView {
 			boolean response;
 			System.out.println("1. Show");
 			System.out.println("2. Add");
-			System.out.println("3. Delete");
-			System.out.println("4. Update");
+			System.out.println("3. Delete By STT");
+			System.out.println("4. Delete By Name");
+			System.out.println("5. Update");
 			System.out.println("0. Exit");
 			int choose = sc.nextInt();
 			sc.nextLine();
@@ -49,12 +50,40 @@ public class BookView {
 			case 3:
 				System.out.println("Nhap vao STT muon xoa: ");
 				int stt = sc.nextInt();
-				response = bookController.xoaTheoStt(stt);
-				System.out.println(response);
+				response = bookController.deleteByStt(stt);
+				if (response) {
+					System.out.println("success");
+				} else {
+					System.out.println("fail");
+				}
 				break;
 			case 4:
-				System.out.println("Nhap vao ten author muon xoa: ");
+				System.out.println("Nhap vao ten sach muon xoa: ");
+				String ten = sc.next();
+				response = bookController.deleteByName(ten);
+				if(response) {
+					System.out.println("success");
+				}else {
+					System.out.println("fail");
+				}
+				break;
+			case 5:
+				System.out.println("Nhap ten sach muon update: ");
+                String nameUpdateBook = sc.nextLine();
 
+                if (bookController.isExistBook(nameUpdateBook)) {
+                    System.out.println("Name:");
+                    String newName = sc.next();
+                    System.out.println("Price:");
+                    int newPrice = sc.nextInt();
+                    
+                    Book newBook = new Book(newName, newPrice);
+					bookController.updateBook(nameUpdateBook, newBook);
+				} else {
+					System.out.println("Not found");
+				}
+				break;
+			case 0: 
 				break;
 			}
 		}

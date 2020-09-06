@@ -18,8 +18,9 @@ public class AuthorView {
 			boolean response;
 			System.out.println("1. Show");
 			System.out.println("2. Add");
-			System.out.println("3. Delete");
-			System.out.println("4. Update");
+			System.out.println("3. Delete By STT");
+			System.out.println("4. Delete By Name");
+			System.out.println("5. Update");
 			System.out.println("0. Exit");
 			int choose = sc.nextInt();
 			sc.nextLine();
@@ -70,8 +71,37 @@ public class AuthorView {
 				System.out.println("Nhap vao ten author muon xoa: ");
 				String ten = sc.next();
 				response = authorController.deleteByName(ten);
-				System.out.println(response);
+				if (response) {
+					System.out.println("success");
+				} else {
+					System.out.println("fail");
+				}
 				break;
+			case 5: 
+				System.out.println("Nhap ten author muon update: ");
+				System.out.println("Name: ");
+				String newName = sc.next();
+				System.out.println("Age: ");
+				int newAge = sc.nextInt();
+				System.out.println("Date: ");
+				int newDate = sc.nextInt();
+				System.out.println("Month: ");
+				int newMonth = sc.nextInt();
+				System.out.println("Year: ");
+				int newYear = sc.nextInt();
+				
+				Date newBirthday = new Date(newYear -1900, newMonth -1,newDate) ;
+				Author newAuthor = new Author(newName,newAge,newBirthday);
+				response = authorController.addAuthor(newAuthor);
+				if (response) {
+					System.out.println("success");
+				} else {
+					System.out.println("fail");
+				}
+				break;
+			case 0: 
+				break;
+				
 			}
 		}
 

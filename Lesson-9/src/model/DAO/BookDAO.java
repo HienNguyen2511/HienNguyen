@@ -3,6 +3,8 @@ package model.DAO;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import Controller.BookController;
 import model.DTO.Book;
 
 public class BookDAO {
@@ -91,9 +93,19 @@ public class BookDAO {
 		return false;
 	}
 
-	public boolean xoaTheoStt(int stt) {
+	public boolean deleteByStt(int stt) {
 		try {
 			library.remove(stt);
+			return true;
+		} catch (Exception e) {
+			System.out.println(e);
+			return false;
+		}
+	}
+
+	public boolean deleteByName(String ten) {
+		try {
+			library.remove(ten);
 			return true;
 		} catch (Exception e) {
 			System.out.println(e);

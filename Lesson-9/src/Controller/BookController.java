@@ -49,8 +49,13 @@ public class BookController {
 		return bookDAO.isExistBook(nameBook);
 	}
 
-	public boolean xoaTheoStt(int stt) {
-		return bookDAO.xoaTheoStt(stt);
+	public boolean deleteByStt(int stt) {
+		return bookDAO.deleteByStt(stt);
 	}
+
+	public boolean deleteByName(String ten) {
+		return bookDAO.deleteByName(ten);
+	}
+
 
 }
